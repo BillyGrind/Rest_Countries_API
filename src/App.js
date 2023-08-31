@@ -1,13 +1,12 @@
-import { Button } from "@chakra-ui/react";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Card from "./components/Card";
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <p>Hello World</p>
-      <Button colorScheme='blue'>Bouton</Button>
-    </div>
+    <>
+      <Navbar />
+      <Card />
+    </>
   );
 }
-
-export default App;
