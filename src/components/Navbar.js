@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import { Box } from "@chakra-ui/react";
 
 export default function Navbar() {
   return (
-    <div>Navbar</div>
-  )
+    <Box bg="gray.400" w="100%" p={4} color="white">
+      Where in the world
+    </Box>
+  );
 }

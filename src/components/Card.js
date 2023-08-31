@@ -1,11 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Card,Heading,CardBody,Image,Stack,Text } from '@chakra-ui/react'
 
 
-export default function Card() {
+export default function CardCountry() {
 
   const [countries,setCountries]=useState([]);
   const [loading,setLoading]=useState([]);
+
+//react query
+//React router
 
   useEffect(() => {
     setLoading(true);
@@ -22,19 +26,26 @@ export default function Card() {
       ;
   }, []);
 
-  const countryNames = countries.map((country, index) => country.name.official);
-
-
   return (
     <>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <ul>
-        {countryNames.map((countryName, index) => (
-          <li key={index}>{countryName}</li>
-        ))}
-      </ul>
+        <>
+          {countries.map((country, index) => (
+            <Card key={index} maxW='sm'>
+              <CardBody>
+                <Image src={country.flags.svg} alt={country.name.common} borderRadius='lg' />
+                <Stack mt='6' spacing='3'>
+                <Heading size='md'>{country.name.common}</Heading>
+                <Text>Population : {country.population}</Text>
+                <Text>Region : {country.region}</Text>
+                <Text>Capital : {country.capital}</Text>
+                </Stack>
+              </CardBody>
+            </Card>
+          ))}
+        </>
       )}
     </>
   );
