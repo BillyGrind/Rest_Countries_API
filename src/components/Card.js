@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Card,Heading,CardBody,Image,Stack,Text } from '@chakra-ui/react'
-
+import { Card,Heading,CardBody,Image,Stack,Text,CircularProgress } from '@chakra-ui/react'
 
 export default function CardCountry() {
 
@@ -29,7 +28,8 @@ export default function CardCountry() {
   return (
     <>
       {loading ? (
-        <div>Loading...</div>
+        // <div>Loading...</div>
+        <CircularProgress isIndeterminate color='green.300'>Loading...</CircularProgress>
       ) : (
         <>
           {countries.map((country, index) => (
