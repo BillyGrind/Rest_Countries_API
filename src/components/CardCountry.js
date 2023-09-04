@@ -51,7 +51,7 @@ export default function CardCountry() {
                 <CardBody>
                   <Image
                     src={country.flags.svg}
-                    alt={country.name.common}
+                    alt={country.name.alt}
                     borderRadius="lg"
                   />
                   <Stack mt="6" spacing="3">

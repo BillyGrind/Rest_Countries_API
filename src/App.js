@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<CardCountry/>} />
+        <Route path='/' element={<CardCountry />} />
         <Route path='/country/:countryName' element={<CardDetail/>} />
       </Routes>
     </>
