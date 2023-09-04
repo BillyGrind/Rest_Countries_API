@@ -46,7 +46,7 @@ export default function CardCountry() {
           <Navbar />
           <Search />
           {countries.map((country, index) => (
-            <Link to={`/country/${country.name.common}`} key={index}>
+            <Link to={`/country/${country.name.common}`} key={index} state={country}>
               <Card key={index} maxW="sm">
                 <CardBody>
                   <Image
