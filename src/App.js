@@ -1,14 +1,15 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Search from "./components/Search";
-import Card from "./components/Card";
+import CardCountry from "./components/CardCountry";
+import CardDetail from "./components/CardDetail";
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
     <>
-      <Navbar />
-      <Search />
-      <Card />
+      <Routes>
+        <Route path='/' element={<CardCountry/>} />
+        <Route path='/country/:countryName' element={<CardDetail/>} />
+      </Routes>
     </>
   );
 }
