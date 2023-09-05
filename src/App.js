@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import CardCountry from "./components/CardCountry";
 import CardDetail from "./components/CardDetail";
 import { Routes, Route } from "react-router-dom";
 
 export default function App() {
+
+  const [countries, setCountries] = useState([]);
+
   return (
     <>
       <Routes>
-        <Route path='/' element={<CardCountry />} />
-        <Route path='/country/:countryName' element={<CardDetail/>} />
+        <Route path='/' element={<CardCountry countries={countries} setCountries={setCountries} />} />
+        <Route path='/country/:countryName' element={<CardDetail countries={countries} setCountries={setCountries} />} />
       </Routes>
     </>
   );
