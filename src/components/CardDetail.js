@@ -13,7 +13,6 @@ import {
 
 export default function CardDetail() {
   let country = useLocation();
-  // console.log(country);
 
   return (
     <>
@@ -49,17 +48,17 @@ export default function CardDetail() {
           }
         </Text>
         <Heading size="md">Languages:</Heading>
-{/* 
-        {country.state.languages.map((language,index) => (
-          {language[index]}
-          ))} */}
+
+        {Object.values(country.state.languages).map((language, index) => (
+          <Text key={index}>{language}</Text>
+        ))}
 
         <Heading size="md">Border Countries:</Heading>
-        {/* <UnorderedList>
-          {country.state.borders.map((border, index) => (
+        <UnorderedList>
+          {Object.values(country.state.borders).map((border, index) => (
             <ListItem key={index}>{border}</ListItem>
           ))}
-        </UnorderedList> */}
+        </UnorderedList>
       </Card>
     </>
   );
