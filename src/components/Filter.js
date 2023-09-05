@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { Input, Stack,InputGroup,InputLeftElement } from "@chakra-ui/react"
+import React, { useState, useEffect } from "react";
+import { Input, Stack, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
-export default function Search() {
+export default function Filter(props) {
+  const [inputText, setInputText] = useState("");
 
-  const [inputText,setInputText]= useState('');
+  useEffect(() => {
+    props.onSearch(inputText);
+  }, [inputText, props]);
 
   const inputHandler = (e) => {
     setInputText(e.target.value);
-  }
-
-  console.log(inputText);
+  };
 
   return (
     <Stack spacing={3}>
@@ -18,7 +19,12 @@ export default function Search() {
         <InputLeftElement pointerEvents="none">
           <SearchIcon color="gray.300" />
         </InputLeftElement>
-        <Input type="text" placeholder="Search for a country..." value={inputText} onChange={inputHandler}/>
+        <Input
+          type="text"
+          placeholder="Search for a country..."
+          value={inputText}
+          onChange={inputHandler}
+        />
       </InputGroup>
     </Stack>
   );

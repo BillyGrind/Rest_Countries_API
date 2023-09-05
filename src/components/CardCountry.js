@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Loading from "./Loading";
 import Filter from "./Filter";
@@ -9,8 +8,7 @@ import { Link } from "react-router-dom";
 export default function CardCountry() {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState([]);
-
-  //react query
+  const [searchValue, setSearchValue] = useState(""); // État local pour la valeur de recherche
 
   useEffect(() => {
     setLoading(true);
@@ -32,6 +30,14 @@ export default function CardCountry() {
     return nameA.localeCompare(nameB);
   });
 
+  const handleSearch = (value) => {
+    setSearchValue(value);
+  };
+
+  const filteredCountries = sortedCountries.filter((country) =>
+    country.name.common.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <>
       {loading ? (
@@ -39,8 +45,8 @@ export default function CardCountry() {
       ) : (
         <>
           <Navbar />
-          <Filter />
-          {sortedCountries.map((country, index) => (
+          <Filter search={searchValue} onSearch={handleSearch} />
+          {filteredCountries.map((country, index) => (
             <Card key={index} maxW="sm">
               <Link
                 to={`/country/${country.name.common}`}

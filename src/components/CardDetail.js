@@ -27,31 +27,39 @@ export default function CardDetail() {
           borderRadius="lg"
         />
         <Heading size="lg">{country.state.name.common}</Heading>
-        <Text>
-          Native Name:
-          {
-            country.state.name.nativeName[
-              Object.keys(country.state.name.nativeName)[0]
-            ].official
-          }
-        </Text>
+        <Text>Native Name:</Text>
+        {country.state.name.nativeName ? (
+          country.state.name.nativeName[
+            Object.keys(country.state.name.nativeName)[0]
+          ].official
+        ) : (
+          <Text>No Native Name</Text>
+        )}
+
         <Text>Population: {country.state.population}</Text>
         <Text>Region: {country.state.region}</Text>
         <Text>Sub Region: {country.state.subregion}</Text>
-        <Text>Capital: {country.state.capital}</Text>
+        <Text>Capital: {country.state.capital?(country.state.capital):("No")}</Text>
         <Text>Top Level Domain: {country.state.tld}</Text>
         <Text>
           Currencies:
-          {
+          {country.state.currencies ? (
             country.state.currencies[Object.keys(country.state.currencies)[0]]
               .name
-          }
+          ) : (
+            " No currencies"
+          )}
         </Text>
+
         <Heading size="md">Languages:</Heading>
 
-        {Object.values(country.state.languages).map((language, index) => (
-          <Text key={index}>{language}</Text>
-        ))}
+        {country.state.languages ? (
+          Object.values(country.state.languages).map((language, index) => (
+            <Text key={index}>{language}</Text>
+          ))
+        ) : (
+          <Text>No Languages</Text>
+        )}
 
         <Heading size="md">Border Countries:</Heading>
         {country.state.borders ? (
