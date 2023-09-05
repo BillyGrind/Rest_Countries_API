@@ -4,10 +4,10 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 export default function Search() {
 
-  const [inputText,setInputText]= useState();
-  let inputHandler = (e) => {
-    let lowerCase=e.target.value.toLowerCase();
-    setInputText(lowerCase);
+  const [inputText,setInputText]= useState('');
+
+  const inputHandler = (e) => {
+    setInputText(e.target.value);
   }
 
   console.log(inputText);
@@ -18,7 +18,7 @@ export default function Search() {
         <InputLeftElement pointerEvents="none">
           <SearchIcon color="gray.300" />
         </InputLeftElement>
-        <Input type="text" placeholder="Search for a country..." onChange={inputHandler}/>
+        <Input type="text" placeholder="Search for a country..." value={inputText} onChange={inputHandler}/>
       </InputGroup>
     </Stack>
   );

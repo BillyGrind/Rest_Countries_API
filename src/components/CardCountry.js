@@ -1,16 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import Search from "./Search";
-import {
-  Card,
-  Heading,
-  CardBody,
-  Image,
-  Stack,
-  Text,
-  CircularProgress,
-} from "@chakra-ui/react";
+import Loading from "./Loading";
+import Filter from "./Filter";
+import { Card, Heading, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function CardCountry() {
@@ -18,7 +11,6 @@ export default function CardCountry() {
   const [loading, setLoading] = useState([]);
 
   //react query
-  //React router
 
   useEffect(() => {
     setLoading(true);
@@ -34,20 +26,27 @@ export default function CardCountry() {
       });
   }, []);
 
+  const sortedCountries = countries.slice().sort((a, b) => {
+    const nameA = a.name.common.toLowerCase();
+    const nameB = b.name.common.toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+
   return (
     <>
       {loading ? (
-        // <div>Loading...</div>
-        <CircularProgress isIndeterminate color="green.300">
-          Loading...
-        </CircularProgress>
+        <Loading />
       ) : (
         <>
           <Navbar />
-          <Search />
-          {countries.map((country, index) => (
-            <Link to={`/country/${country.name.common}`} key={index} state={country}>
-              <Card key={index} maxW="sm">
+          <Filter />
+          {sortedCountries.map((country, index) => (
+            <Card key={index} maxW="sm">
+              <Link
+                to={`/country/${country.name.common}`}
+                key={index}
+                state={country}
+              >
                 <CardBody>
                   <Image
                     src={country.flags.svg}
@@ -61,8 +60,8 @@ export default function CardCountry() {
                     <Text>Capital : {country.capital}</Text>
                   </Stack>
                 </CardBody>
-              </Card>
-            </Link>
+              </Link>
+            </Card>
           ))}
         </>
       )}

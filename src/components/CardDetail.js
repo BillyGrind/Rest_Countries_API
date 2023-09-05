@@ -54,11 +54,15 @@ export default function CardDetail() {
         ))}
 
         <Heading size="md">Border Countries:</Heading>
-        <UnorderedList>
-          {Object.values(country.state.borders).map((border, index) => (
-            <ListItem key={index}>{border}</ListItem>
-          ))}
-        </UnorderedList>
+        {country.state.borders ? (
+          <UnorderedList>
+            {Object.values(country.state.borders).map((border, index) => (
+              <ListItem key={index}>{border}</ListItem>
+            ))}
+          </UnorderedList>
+        ) : (
+          <Text>No borders countries</Text>
+        )}
       </Card>
     </>
   );
