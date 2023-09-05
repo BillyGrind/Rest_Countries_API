@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import CardCountry from "./components/CardCountry";
 import CardDetail from "./components/CardDetail";
 import { Routes, Route } from "react-router-dom";
 
 export default function App() {
+
+  const [countries, setCountries] = useState([]);
+
   return (
     <>
       <Routes>
-        <Route path='/' element={<CardCountry />} />
-        <Route path='/country/:countryName' element={<CardDetail/>} />
+        <Route path="/" element={<CardCountry  countries={countries} setCountries={setCountries}/>} />
+        <Route path="/country/:countryName" element={<CardDetail countries={countries} setCountries={setCountries}/>} />
       </Routes>
     </>
   );
 }
-
 
 // ---------------------- TO DO
 
@@ -27,8 +29,7 @@ export default function App() {
 // ADD arrow button
 // Center app
 
-
-// ---------------------- DONE 
+// ---------------------- DONE
 
 // See all countries from the API on the homepage
 // Click on a country to see more detailed information on a separate page

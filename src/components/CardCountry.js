@@ -6,8 +6,9 @@ import FilterInput from "./FilterInput";
 import { Card, Heading, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-export default function CardCountry() {
-  const [countries, setCountries] = useState([]);
+export default function CardCountry(props) {
+  const countries = props.countries;
+  const setCountries =props.setCountries;
   const [loading, setLoading] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -38,14 +39,6 @@ export default function CardCountry() {
     setSearchValue(value);
   };
 
-  // const filteredCountries = sortedCountries.filter((country) =>
-  //   country.name.common.toLowerCase().includes(searchValue.toLowerCase())
-  // );
-
-  // const filteredCountries = sortedCountries.filter((country) =>
-  // {searchValue?( country.name.common.toLowerCase().includes(searchValue.toLowerCase())):(country.region.toLowerCase().includes(selectedRegion.toLowerCase()))}
-
-  // );
 
   const filteredCountries = sortedCountries.filter((country) => {
     if (searchValue) {
@@ -60,6 +53,8 @@ export default function CardCountry() {
     return true;
   });
 
+  setCountries(filteredCountries);
+
   return (
     <>
       {loading ? (
@@ -69,7 +64,7 @@ export default function CardCountry() {
           <Navbar />
           <FilterInput search={searchValue} onSearch={handleSearch} />
           <FilterRegion setSelectedRegion={setSelectedRegion} />
-          {filteredCountries.map((country, index) => (
+          {countries.map((country, index) => (
             <Card key={index} maxW="sm">
               <Link
                 to={`/country/${country.name.common}`}
