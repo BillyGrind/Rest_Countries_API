@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Input, Stack, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
-export default function Filter(props) {
+export default function FilterInput(props) {
   const [inputText, setInputText] = useState("");
 
   useEffect(() => {

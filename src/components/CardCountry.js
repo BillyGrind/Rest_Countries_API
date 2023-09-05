@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import FilterRegion from "./FilterRegion";
 import Loading from "./Loading";
-import Filter from "./Filter";
+import FilterInput from "./FilterInput";
 import { Card, Heading, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function CardCountry() {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState([]);
-  const [searchValue, setSearchValue] = useState(""); // État local pour la valeur de recherche
+  const [searchValue, setSearchValue] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -24,6 +26,8 @@ export default function CardCountry() {
       });
   }, []);
 
+  console.log(selectedRegion);
+
   const sortedCountries = countries.slice().sort((a, b) => {
     const nameA = a.name.common.toLowerCase();
     const nameB = b.name.common.toLowerCase();
@@ -34,9 +38,27 @@ export default function CardCountry() {
     setSearchValue(value);
   };
 
-  const filteredCountries = sortedCountries.filter((country) =>
-    country.name.common.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  // const filteredCountries = sortedCountries.filter((country) =>
+  //   country.name.common.toLowerCase().includes(searchValue.toLowerCase())
+  // );
+
+  // const filteredCountries = sortedCountries.filter((country) =>
+  // {searchValue?( country.name.common.toLowerCase().includes(searchValue.toLowerCase())):(country.region.toLowerCase().includes(selectedRegion.toLowerCase()))}
+
+  // );
+
+  const filteredCountries = sortedCountries.filter((country) => {
+    if (searchValue) {
+      return country.name.common
+        .toLowerCase()
+        .includes(searchValue.toLowerCase());
+    } else if (selectedRegion) {
+      return country.region
+        .toLowerCase()
+        .includes(selectedRegion.toLowerCase());
+    }
+    return true;
+  });
 
   return (
     <>
@@ -45,7 +67,8 @@ export default function CardCountry() {
       ) : (
         <>
           <Navbar />
-          <Filter search={searchValue} onSearch={handleSearch} />
+          <FilterInput search={searchValue} onSearch={handleSearch} />
+          <FilterRegion setSelectedRegion={setSelectedRegion} />
           {filteredCountries.map((country, index) => (
             <Card key={index} maxW="sm">
               <Link
