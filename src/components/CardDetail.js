@@ -39,16 +39,16 @@ export default function CardDetail() {
         <Text>Population: {country.state.population}</Text>
         <Text>Region: {country.state.region}</Text>
         <Text>Sub Region: {country.state.subregion}</Text>
-        <Text>Capital: {country.state.capital?(country.state.capital):("No")}</Text>
+        <Text>
+          Capital: {country.state.capital ? country.state.capital : "No"}
+        </Text>
         <Text>Top Level Domain: {country.state.tld}</Text>
         <Text>
           Currencies:
-          {country.state.currencies ? (
-            country.state.currencies[Object.keys(country.state.currencies)[0]]
-              .name
-          ) : (
-            " No currencies"
-          )}
+          {country.state.currencies
+            ? country.state.currencies[Object.keys(country.state.currencies)[0]]
+                .name
+            : " No currencies"}
         </Text>
 
         <Heading size="md">Languages:</Heading>
@@ -65,7 +65,9 @@ export default function CardDetail() {
         {country.state.borders ? (
           <UnorderedList>
             {Object.values(country.state.borders).map((border, index) => (
-              <ListItem key={index}>{border}</ListItem>
+              <Link to={`/`} key={index}>
+                <ListItem key={index}>{border}</ListItem>
+              </Link>
             ))}
           </UnorderedList>
         ) : (
