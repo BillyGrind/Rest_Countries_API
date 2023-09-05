@@ -19,7 +19,6 @@ export default function App() {
 
 // ---------------------- TO DO
 
-// Click through to the border countries on the detail page
 // View the optimal layout for the interface depending on their device's screen size
 // See hover and focus states for all interactive elements on the page
 // work design
@@ -31,6 +30,7 @@ export default function App() {
 
 // ---------------------- DONE
 
+// Click through to the border countries on the detail page
 // See all countries from the API on the homepage
 // Click on a country to see more detailed information on a separate page
 // Search for a country using an input field
