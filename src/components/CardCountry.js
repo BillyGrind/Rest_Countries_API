@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function CardCountry(props) {
   const countries = props.countries;
-  const setCountries = props.setCountries;
+  const setCountries =props.setCountries;
   const [loading, setLoading] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -39,14 +39,6 @@ export default function CardCountry(props) {
     setSearchValue(value);
   };
 
-  // const filteredCountries = sortedCountries.filter((country) =>
-  //   country.name.common.toLowerCase().includes(searchValue.toLowerCase())
-  // );
-
-  // const filteredCountries = sortedCountries.filter((country) =>
-  // {searchValue?( country.name.common.toLowerCase().includes(searchValue.toLowerCase())):(country.region.toLowerCase().includes(selectedRegion.toLowerCase()))}
-
-  // );
 
   const filteredCountries = sortedCountries.filter((country) => {
     if (searchValue) {

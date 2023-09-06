@@ -10,17 +10,15 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<CardCountry countries={countries} setCountries={setCountries} />} />
-        <Route path='/country/:countryName' element={<CardDetail countries={countries} setCountries={setCountries} />} />
+        <Route path="/" element={<CardCountry  countries={countries} setCountries={setCountries}/>} />
+        <Route path="/country/:countryName" element={<CardDetail countries={countries} setCountries={setCountries}/>} />
       </Routes>
     </>
   );
 }
 
-
 // ---------------------- TO DO
 
-// Click through to the border countries on the detail page
 // View the optimal layout for the interface depending on their device's screen size
 // See hover and focus states for all interactive elements on the page
 // work design
@@ -30,9 +28,9 @@ export default function App() {
 // ADD arrow button
 // Center app
 
+// ---------------------- DONE
 
-// ---------------------- DONE 
-
+// Click through to the border countries on the detail page
 // See all countries from the API on the homepage
 // Click on a country to see more detailed information on a separate page
 // Search for a country using an input field

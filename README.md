@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# REST Countries API Integration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a challenge to integrate with the REST Countries API and display country data in accordance with the provided designs. You have the freedom to choose any JavaScript framework or library for the front-end, and you can use any packages for making HTTP requests and styling your project.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+Your task is to implement the following features:
 
-### `npm start`
+1. **Homepage**:
+   - Display a list of all countries from the API.
+   - Users should be able to view basic country information on the homepage.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Search**:
+   - Implement a search functionality with an input field that allows users to search for a specific country by name.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Filter by Region**:
+   - Provide a way for users to filter countries by region (e.g., Africa, Americas, Asia, Europe, Oceania).
 
-### `npm test`
+4. **Country Details**:
+   - When a user clicks on a country from the list, show more detailed information on a separate page.
+   - Include information like population, capital, languages, currencies, etc.
+   - Allow users to navigate to the border countries of the selected country.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **Responsive Design**:
+   - Ensure that the interface layout is optimal for various device screen sizes (e.g., desktop, tablet, mobile).
 
-### `npm run build`
+6. **Interactive Elements**:
+   - Implement hover and focus states for all interactive elements on the page to enhance the user experience.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7. **Dark Mode**:
+   - Add the ability for users to toggle between light and dark color schemes for the interface.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+8. **Loading Page**:
+   - Create a loading page or spinner to display while the data is being fetched from the API.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+9. **404 Error Page**:
+   - Design a custom 404 error page to handle any invalid URLs or missing resources gracefully.
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To get this project up and running, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone this repository to your local machine.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone <repository-url>
+cd <project-directory>
+npm install
+npm start
+Open your web browser and access the project at http://localhost:3000
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies Used
+- React
+- Chakra UI
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Here are some screenshots of the project:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Homepage**:
+  ![Homepage](/path/to/main-screenshot.png)
 
-### Code Splitting
+- **Country Details**:
+  ![Country Details](/path/to/country-details-screenshot.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Integration
 
-### Analyzing the Bundle Size
+To fetch country data, you can use the following API endpoint:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[REST Countries API](https://restcountries.com/v3.1/all)

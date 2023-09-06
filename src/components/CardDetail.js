@@ -17,6 +17,13 @@ export default function CardDetail(props) {
     return country.name.common
   }
 
+  const getCountry = (countryCode) => {
+    country = props.countries.filter((country) => {
+      return country.cca3 == countryCode;
+    })[0];
+    return country.name.common;
+  };
+
   return (
     <>
       <Navbar />
@@ -49,8 +56,7 @@ export default function CardDetail(props) {
         <Text>
           Currencies:
           {country.state.currencies
-            ? country.state.currencies[Object.keys(country.state.currencies)[0]]
-              .name
+            ? country.state.currencies[Object.keys(country.state.currencies)[0]].name
             : " No currencies"}
         </Text>
 
@@ -69,7 +75,6 @@ export default function CardDetail(props) {
           <UnorderedList>
             {Object.values(country.state.borders).map((border, index) => (
               <Link to={`/country/${getCountry(border)}`} key={index} state={country}>
-                {console.log('border', border)}
                 <ListItem key={index}>{border}</ListItem>
               </Link>
             ))}
