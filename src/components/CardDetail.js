@@ -11,11 +11,8 @@ import {
 } from "@chakra-ui/react";
 
 export default function CardDetail(props) {
+  
   let country = useLocation();
-  const getCountry = (countryCode) => {
-    country = props.countries.filter((country) => { return country.cca3 == countryCode })[0];
-    return country.name.common
-  }
 
   const getCountry = (countryCode) => {
     country = props.countries.filter((country) => {
