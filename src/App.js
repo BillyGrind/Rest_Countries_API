@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import CardCountry from "./components/CardCountry";
 import CardDetail from "./components/CardDetail";
 import { Routes, Route } from "react-router-dom";
-// import { extendTheme } from "@chakra-ui/react";
 
 export default function App() {
 
   const [countries, setCountries] = useState([]);
-  
 
   return (
     <>
