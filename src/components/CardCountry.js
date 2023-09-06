@@ -47,7 +47,11 @@ export default function CardCountry({countries}) {
           <FilterInput search={searchValue} onSearch={handleSearch} />
           <FilterRegion setSelectedRegion={setSelectedRegion} />
           {filteredCountries.map((country, index) => (
-            <Card key={index} maxW="sm">
+            <Card key={index} maxW="sm"  
+            _hover={{
+              background: "grey",
+              color: "white",
+            }}>
               <Link
                 to={`/country/${country.name.common}`}
                 key={index}
