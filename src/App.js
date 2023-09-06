@@ -47,6 +47,7 @@ export default function App() {
 // View the optimal layout for the interface depending on their device's screen size
 // work design
 // Bonus: Toggle the color scheme between light and dark mode
+//fix loading page
 
 // ---------------------- DESIGN
 // ADD arrow button
