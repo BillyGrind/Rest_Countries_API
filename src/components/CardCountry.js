@@ -6,28 +6,11 @@ import FilterInput from "./FilterInput";
 import { Card, Heading, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-export default function CardCountry(props) {
-  const countries = props.countries;
-  const setCountries =props.setCountries;
-  const [loading, setLoading] = useState([]);
+export default function CardCountry({countries}) {
+  const [loading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
 
-  useEffect(() => {
-    setLoading(true);
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => response.json())
-      .then((json) => setCountries(json))
-      .finally(() => {
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  console.log(selectedRegion);
 
   const sortedCountries = countries.slice().sort((a, b) => {
     const nameA = a.name.common.toLowerCase();
@@ -53,7 +36,6 @@ export default function CardCountry(props) {
     return true;
   });
 
-  setCountries(filteredCountries);
 
   return (
     <>
@@ -64,8 +46,12 @@ export default function CardCountry(props) {
           <Navbar />
           <FilterInput search={searchValue} onSearch={handleSearch} />
           <FilterRegion setSelectedRegion={setSelectedRegion} />
-          {countries.map((country, index) => (
-            <Card key={index} maxW="sm">
+          {filteredCountries.map((country, index) => (
+            <Card key={index} maxW="sm"  
+            _hover={{
+              background: "grey",
+              color: "white",
+            }}>
               <Link
                 to={`/country/${country.name.common}`}
                 key={index}
