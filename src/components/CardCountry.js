@@ -12,7 +12,6 @@ import {
   SimpleGrid,
   Flex,
   Box,
-  Spacer
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -47,7 +46,8 @@ export default function CardCountry({ countries }) {
     <>
       <Navbar />
       <Box px={6}>
-        <Flex display='column' justifyContent={"space-between"}>
+        <Flex display='column' justifyContent={"space-between"}
+        >
           <FilterInput search={searchValue} onSearch={handleSearch} />
           <FilterRegion setSelectedRegion={setSelectedRegion} />
         </Flex>

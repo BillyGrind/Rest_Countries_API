@@ -44,14 +44,11 @@ export default function App() {
 
 // ---------------------- TO DO
 
-// View the optimal layout for the interface depending on their device's screen size
 // work design
-// Bonus: Toggle the color scheme between light and dark mode
-//fix loading page
 
 // ---------------------- DESIGN
 // ADD arrow button
-// Center app
+
 
 // ---------------------- DONE
 
@@ -61,3 +58,7 @@ export default function App() {
 // Search for a country using an input field
 // Filter countries by region
 // See hover and focus states for all interactive elements on the page
+// Bonus: Toggle the color scheme between light and dark mode
+//fix loading page
+// View the optimal layout for the interface depending on their device's screen size
+// Center app

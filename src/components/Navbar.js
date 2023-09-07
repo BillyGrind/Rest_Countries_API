@@ -2,18 +2,10 @@ import React from "react";
 import {
   Box,
   Flex,
-  Avatar,
   Text,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useColorModeValue,
-  Stack,
   useColorMode,
-  Center,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
