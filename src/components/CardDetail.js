@@ -9,6 +9,7 @@ import {
   Flex,
   Stack,
   ButtonGroup,
+  Wrap
 } from "@chakra-ui/react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 
@@ -102,7 +103,7 @@ export default function CardDetail(props) {
           <Text as="b">Border Countries :&nbsp;</Text>
           <Flex mt={2}>
             {country.state.borders ? (
-              <ButtonGroup gap={2}>
+              <Wrap gap={2}>
                 {Object.values(country.state.borders).map((border, index) => (
                   <Link
                     to={`/country/${getCountry(border)}`}
@@ -112,7 +113,7 @@ export default function CardDetail(props) {
                     <Button key={index} size={"sm"} variant="outline">{border}</Button>
                   </Link>
                 ))}
-              </ButtonGroup>
+              </Wrap>
             ) : (
               <Text>No borders countries</Text>
             )}

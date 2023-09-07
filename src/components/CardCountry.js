@@ -13,6 +13,7 @@ import {
   Flex,
   Box,
   VStack,
+  Wrap,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -47,7 +48,7 @@ export default function CardCountry({ countries }) {
     <>
       <Navbar />
       <Box>
-        <VStack spacing={4} align={"stretch"} m={2} px={4}>
+        <VStack spacing={4} align={"stretch"} m={6}>
           <FilterInput search={searchValue} onSearch={handleSearch} />
           <FilterRegion setSelectedRegion={setSelectedRegion} />
         </VStack>

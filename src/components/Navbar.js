@@ -15,7 +15,7 @@ export default function Navbar() {
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Text>Where in the world</Text>
+          <Text as='b'>Where in the world ?</Text>
           <Button onClick={toggleColorMode}>
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>

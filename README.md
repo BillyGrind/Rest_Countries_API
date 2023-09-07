@@ -59,10 +59,19 @@ Open your web browser and access the project at http://localhost:3000
 Here are some screenshots of the project:
 
 - **Homepage**:
-  ![Homepage](/path/to/main-screenshot.png)
+  ![Homepage](/public/screenshots/screenshot_main.png)
+
+- **Homepage Dark Mode**:
+  ![Homepage Dark Mode](/public/screenshots/screenshot_main_2.png)
+
+- **Homepage Dark Mode Mobile Version**:
+  ![Homepage Dark Mode](/public/screenshots/screenshot_main_3.png)
 
 - **Country Details**:
-  ![Country Details](/path/to/country-details-screenshot.png)
+  ![Country Details](/public/screenshots/screenshot_detail_2.png)
+
+- **Country Details Dark Mode**:
+  ![Country Details Dark Mode](/public/screenshots/screenshot_detail.png)
 
 ## API Integration
 
