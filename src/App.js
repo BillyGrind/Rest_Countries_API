@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CardCountry from "./components/CardCountry";
 import CardDetail from "./components/CardDetail";
 import { Routes, Route } from "react-router-dom";
+import Loading from "./components/Loading";
 
 export default function App() {
-
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,33 +24,31 @@ export default function App() {
 
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <CardCountry countries={countries} />
-          }
-        />
-        <Route
-          path="/country/:countryName"
-          element={
-            <CardDetail countries={countries} />
-          }
-        />
-      </Routes>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={<CardCountry countries={countries} loading={loading} />}
+          />
+          <Route
+            path="/country/:countryName"
+            element={<CardDetail countries={countries} />}
+          />
+        </Routes>
+      )}
     </>
   );
 }
 
 // ---------------------- TO DO
 
-// View the optimal layout for the interface depending on their device's screen size
 // work design
-// Bonus: Toggle the color scheme between light and dark mode
 
 // ---------------------- DESIGN
 // ADD arrow button
-// Center app
+
 
 // ---------------------- DONE
 
@@ -60,3 +58,7 @@ export default function App() {
 // Search for a country using an input field
 // Filter countries by region
 // See hover and focus states for all interactive elements on the page
+// Bonus: Toggle the color scheme between light and dark mode
+//fix loading page
+// View the optimal layout for the interface depending on their device's screen size
+// Center app
