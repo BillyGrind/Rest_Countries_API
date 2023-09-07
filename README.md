@@ -2,6 +2,12 @@
 
 This project is a challenge to integrate with the REST Countries API and display country data in accordance with the provided designs. You have the freedom to choose any JavaScript framework or library for the front-end, and you can use any packages for making HTTP requests and styling your project.
 
+## Deployment on Vercel
+
+This project has been successfully deployed on Vercel, a cloud hosting platform for web applications. You can access the deployed version by following the link below:
+
+[View the demo on Vercel](https://rest-countries-api-beta-lyart.vercel.app/)
+
 ## Features
 
 Your task is to implement the following features:
