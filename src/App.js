@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CardCountry from "./components/CardCountry";
 import CardDetail from "./components/CardDetail";
 import { Routes, Route } from "react-router-dom";
+import Loading from "./components/Loading";
 
 export default function App() {
-
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,20 +24,20 @@ export default function App() {
 
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <CardCountry countries={countries} />
-          }
-        />
-        <Route
-          path="/country/:countryName"
-          element={
-            <CardDetail countries={countries} />
-          }
-        />
-      </Routes>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={<CardCountry countries={countries} loading={loading} />}
+          />
+          <Route
+            path="/country/:countryName"
+            element={<CardDetail countries={countries} />}
+          />
+        </Routes>
+      )}
     </>
   );
 }
