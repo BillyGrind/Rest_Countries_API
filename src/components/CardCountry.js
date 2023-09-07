@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import FilterRegion from "./FilterRegion";
 import FilterInput from "./FilterInput";
@@ -12,6 +12,7 @@ import {
   SimpleGrid,
   Flex,
   Box,
+  VStack,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -45,12 +46,11 @@ export default function CardCountry({ countries }) {
   return (
     <>
       <Navbar />
-      <Box px={6}>
-        <Flex display='column' justifyContent={"space-between"}
-        >
+      <Box>
+        <VStack spacing={4} align={"stretch"} m={2} px={4}>
           <FilterInput search={searchValue} onSearch={handleSearch} />
           <FilterRegion setSelectedRegion={setSelectedRegion} />
-        </Flex>
+        </VStack>
       </Box>
       <SimpleGrid
         spacing={6}
@@ -63,8 +63,7 @@ export default function CardCountry({ countries }) {
             variant="elevated"
             maxW="sm"
             _hover={{
-              background: "grey",
-              color: "white",
+              background: "blackAlpha.100",
             }}
           >
             <Link
